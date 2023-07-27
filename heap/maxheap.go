@@ -64,9 +64,9 @@ func (h *Maxheap) maxHeapifyDown(index int) {
 }
 
 func (h *Maxheap) maxHeapifyup(index int) {
-	for h.array[parent(index)] < h.array[index] {
-		h.swap(parent(index), index)
-		index = parent(index)
+	for h.array[Parent(index)] < h.array[index] {
+		h.swap(Parent(index), index)
+		index = Parent(index)
 	}
 }
 
@@ -74,7 +74,7 @@ func (h *Maxheap) swap(i1, i2 int) {
 	h.array[i1], h.array[i2] = h.array[i2], h.array[i1]
 }
 
-func parent(index int) int {
+func Parent(index int) int {
 	return (index - 1) / 2
 }
 func leftchild(i int) int {
